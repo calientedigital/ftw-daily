@@ -34,6 +34,7 @@
     "object.entries": "^1.0.4",
     "object.values": "^1.0.4",
     "path-to-regexp": "^3.0.0",
+    "pm2": "^4.2.3",
     "prop-types": "^15.7.2",
     "query-string": "^5.1.1",
     "raf": "^3.4.0",
@@ -54,7 +55,7 @@
     "sharetribe-flex-sdk": "^1.9.1",
     "sharetribe-scripts": "3.1.1",
     "smoothscroll-polyfill": "^0.4.0",
-    "source-map-support": "^0.5.9",
+    "source-map-support": "^0.5.16",
     "url": "^0.11.0"
   },
   "devDependencies": {
