@@ -36,7 +36,15 @@ export const amenities = [
     label: 'Own food allowed',
   },
 ];
-
+export const diasDisponibles = [
+  { key: 'lunes', label: 'Lunes' },
+  { key: 'martes', label: 'Martes' },
+  { key: 'miércoles', label: 'Miércoles' },
+  { key: 'jueves', label: 'Jueves' },
+  { key: 'viernes', label: 'Viernes' },
+  { key: 'sabado', label: 'Sábado' },
+  { key: 'domingo', label: 'Domingo' },
+];
 export const categories = [
   { key: 'smoke', label: 'Smoke' },
   { key: 'electric', label: 'Electric' },
