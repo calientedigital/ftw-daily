@@ -57,6 +57,8 @@ const EditListingFeaturesPanel = props => {
           const updatedValues = {
             publicData: { amenities },
           };
+          console.log("VALORES OBTENIDOS");
+          console.log(updatedValues);
           onSubmit(updatedValues);
         }}
         onChange={onChange}

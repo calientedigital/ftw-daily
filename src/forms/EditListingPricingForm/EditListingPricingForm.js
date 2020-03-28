@@ -11,6 +11,9 @@ import { formatMoney } from '../../util/currency';
 import { types as sdkTypes } from '../../util/sdkLoader';
 import { Button, Form, FieldCurrencyInput } from '../../components';
 import css from './EditListingPricingForm.css';
+import { Helmet } from 'react-helmet-async';
+import helmet from 'helmet';
+
 
 const { Money } = sdkTypes;
 
@@ -30,6 +33,8 @@ export const EditListingPricingFormComponent = props => (
         updated,
         updateInProgress,
         fetchErrors,
+        setValue,
+        getValue,
       } = formRenderProps;
 
       const unitType = config.bookingUnitType;
@@ -76,7 +81,8 @@ export const EditListingPricingFormComponent = props => (
       const submitInProgress = updateInProgress;
       const submitDisabled = invalid || disabled || submitInProgress;
       const { updateListingError, showListingsError } = fetchErrors || {};
-
+      
+    
       return (
         <Form onSubmit={handleSubmit} className={classes}>
           {updateListingError ? (
@@ -94,12 +100,14 @@ export const EditListingPricingFormComponent = props => (
             name="price"
             className={css.priceInput}
             autoFocus
-            label={pricePerUnitMessage}
+            label="Ingresa el precio de tu producto / servicio"
             placeholder={pricePlaceholderMessage}
             currencyConfig={config.currencyConfig}
             validate={priceValidators}
           />
-
+          <p></p>
+          <p>Nota: Del precio de venta, habitálogo obtiene una comisión del 20 %</p>
+          <p>Precio que vas a obtener: </p>
           <Button
             className={css.submitButton}
             type="submit"

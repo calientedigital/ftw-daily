@@ -5,10 +5,10 @@ import { FormattedMessage } from '../../util/reactIntl';
 import { ensureOwnListing } from '../../util/data';
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ListingLink } from '../../components';
-import { EditListingAvailabilityForm } from '../../forms';
+import { EditListingDaysForm } from '../../forms';
 
 import css from './EditListingAvailabilityPanel.css';
-
+const FEATURES_NAME = 'diasDisponibles';
 const EditListingAvailabilityPanel = props => {
   const {
     className,
@@ -24,10 +24,16 @@ const EditListingAvailabilityPanel = props => {
     updateInProgress,
     errors,
   } = props;
-
-  const classes = classNames(rootClassName || css.root, className);
+  
   const currentListing = ensureOwnListing(listing);
   const isPublished = currentListing.id && currentListing.attributes.state !== LISTING_STATE_DRAFT;
+  
+  
+  const { publicData } = currentListing.attributes;
+  const diasDisponibles = publicData && publicData.diasDisponibles;
+  const initialValues = { diasDisponibles };
+  const classes = classNames(rootClassName || css.root, className);
+  
   const defaultAvailabilityPlan = {
     type: 'availability-plan/day',
     entries: [
@@ -41,20 +47,46 @@ const EditListingAvailabilityPanel = props => {
     ],
   };
   const availabilityPlan = currentListing.attributes.availabilityPlan || defaultAvailabilityPlan;
-
+  
+  // <!--<h1 className={css.title}>-->
   return (
     <div className={classes}>
-      <h1 className={css.title}>
+      
+      <h1>Selecciona los días que tu producto/servicio están disponibles
         {isPublished ? (
-          <FormattedMessage
-            id="EditListingAvailabilityPanel.title"
-            values={{ listingTitle: <ListingLink listing={listing} /> }}
-          />
+          // <FormattedMessage
+          //   id="EditListingAvailabilityPanel.title"
+          //   values={{ listingTitle: <ListingLink listing={listing} /> }}
+          // />
+          <h1>Selecciona los días que tu producto/servicio están disponibles</h1>
         ) : (
-          <FormattedMessage id="EditListingAvailabilityPanel.createListingTitle" />
+          <p></p>
+          // <FormattedMessage id="EditListingAvailabilityPanel.createListingTitle" />
         )}
       </h1>
-      <EditListingAvailabilityForm
+      <EditListingDaysForm
+        className={css.form}
+        name={FEATURES_NAME}
+        initialValues={initialValues}
+        onSubmit={values => {
+          const { diasDisponibles = [] } = values;
+
+          const updatedValues = {
+            publicData: { diasDisponibles },
+          };
+          console.log("VALORES OBTENIDOS");
+          console.log(updatedValues);
+          onSubmit(updatedValues);
+        }}
+        onChange={onChange}
+        saveActionMsg={submitButtonText}
+        disabled={disabled}
+        ready={ready}
+        updated={panelUpdated}
+        updateInProgress={updateInProgress}
+        fetchErrors={errors}
+      />
+      {/* <EditListingAvailabilityForm
         className={css.form}
         listingId={currentListing.id}
         initialValues={{ availabilityPlan }}
@@ -74,7 +106,7 @@ const EditListingAvailabilityPanel = props => {
         updated={panelUpdated}
         updateError={errors.updateListingError}
         updateInProgress={updateInProgress}
-      />
+      /> */}
     </div>
   );
 };
@@ -92,12 +124,12 @@ EditListingAvailabilityPanel.propTypes = {
   // We cannot use propTypes.listing since the listing might be a draft.
   listing: object,
 
-  availability: shape({
-    calendar: object.isRequired,
-    onFetchAvailabilityExceptions: func.isRequired,
-    onCreateAvailabilityException: func.isRequired,
-    onDeleteAvailabilityException: func.isRequired,
-  }).isRequired,
+  // availability: shape({
+  //   calendar: object.isRequired,
+  //   onFetchAvailabilityExceptions: func.isRequired,
+  //   onCreateAvailabilityException: func.isRequired,
+  //   onDeleteAvailabilityException: func.isRequired,
+  // }).isRequired,
   disabled: bool.isRequired,
   ready: bool.isRequired,
   onSubmit: func.isRequired,
