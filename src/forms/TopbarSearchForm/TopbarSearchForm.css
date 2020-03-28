@@ -153,7 +153,7 @@
   padding-bottom: var(--locationAutocompleteBottomPadding);
   top: 50px;
   left: 0;
-  background-color: var(--marketplaceColor);
+  background-color: var(--marketplaceColorLight);
   border-bottom-left-radius: var(--borderRadius);
   border-bottom-right-radius: var(--borderRadius);
   box-shadow: var(--boxShadowPopup);
