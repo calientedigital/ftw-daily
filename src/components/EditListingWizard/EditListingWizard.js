@@ -42,7 +42,7 @@ export const TABS = [
   POLICY,
   LOCATION,
   PRICING,
-  // ...availabilityMaybe,
+  ...availabilityMaybe,
   PHOTOS,
 ];
 
@@ -103,8 +103,8 @@ const tabCompleted = (tab, listing) => {
       return !!(geolocation && publicData && publicData.location && publicData.location.address);
     case PRICING:
       return !!price;
-    // case AVAILABILITY:
-    //   return !!availabilityPlan;
+    case AVAILABILITY:
+      return !!(publicData && publicData.diasDisponibles);
     case PHOTOS:
       return images && images.length > 0;
     default:

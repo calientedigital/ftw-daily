@@ -20,6 +20,7 @@ import {
 } from '../../components';
 
 import css from './EditListingWizard.css';
+import { update } from 'autosize';
 
 export const AVAILABILITY = 'availability';
 export const DESCRIPTION = 'description';
@@ -36,7 +37,7 @@ export const SUPPORTED_TABS = [
   POLICY,
   LOCATION,
   PRICING,
-  // AVAILABILITY,
+  AVAILABILITY,
   PHOTOS,
 ];
 
@@ -112,8 +113,10 @@ const EditListingWizardTab = props => {
     const imageProperty =
       typeof updatedImages !== 'undefined' ? { images: imageIds(updatedImages) } : {};
     const updateValuesWithImages = { ...otherValues, ...imageProperty };
-
+    console.log("acaaaa");
     if (isNewListingFlow) {
+      console.log("isnew");
+      console.log(updateValues);
       const onUpsertListingDraft = isNewURI
         ? (tab, updateValues) => onCreateListingDraft(updateValues)
         : onUpdateListing;
@@ -138,6 +141,8 @@ const EditListingWizardTab = props => {
           // No need for extra actions
         });
     } else {
+      
+      console.log(updateValues);
       onUpdateListing(tab, { ...updateValuesWithImages, id: currentListing.id });
     }
   };
