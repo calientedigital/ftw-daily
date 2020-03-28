@@ -1,14 +1,16 @@
 import React from 'react';
-import { bool, func, shape, string } from 'prop-types';
+import { arrayOf, bool, func, shape, string } from 'prop-types';
 import classNames from 'classnames';
 import { Form as FinalForm } from 'react-final-form';
 import arrayMutators from 'final-form-arrays';
 import { FormattedMessage } from '../../util/reactIntl';
-
+import CustomHourSelectField from './CustomHourSelectField';
 import { propTypes } from '../../util/types';
+import { intlShape, injectIntl } from '../../util/reactIntl';
+import { maxLength, required, composeValidators } from '../../util/validators';
 import config from '../../config';
 import { Button, FieldCheckboxGroup, Form } from '../../components';
-
+import { compose } from 'redux';
 import css from './EditListingFeaturesForm.css';
 
 const EditListingDaysFormComponent = props => (
@@ -22,6 +24,8 @@ const EditListingDaysFormComponent = props => (
         rootClassName,
         className,
         name,
+        categories,
+        intl,
         handleSubmit,
         pristine,
         saveActionMsg,
@@ -41,7 +45,16 @@ const EditListingDaysFormComponent = props => (
           <FormattedMessage id="EditListingFeaturesForm.updateFailed" />
         </p>
       ) : null;
-
+      const categoryLabelBegin = "Hora de inicio:";
+      const categoryPlaceholderBegin = "Seleccione su hora de inicio";
+      const categoryRequiredBegin = required(
+        "Hora de inicio es obligatoria"
+      );
+      const categoryLabelEnd = "Hora de fin:";
+      const categoryPlaceholderEnd = "Seleccione su hora de fin";
+      const categoryRequiredEnd = required(
+        "Hora de fin es obligatoria"
+      );
       const errorMessageShowListing = showListingsError ? (
         <p className={css.error}>
           <FormattedMessage id="EditListingFeaturesForm.showListingFailed" />
@@ -59,7 +72,26 @@ const EditListingDaysFormComponent = props => (
             name={name}
             options={config.custom.diasDisponibles}
           />
-
+          <div class="row">
+          <CustomHourSelectField
+            id="begin"
+            name="begin"
+            categories={categories}
+            intl={intl}
+            categoryLabel={categoryLabelBegin}
+            categoryPlaceholder={categoryPlaceholderBegin}
+            categoryRequired = {categoryRequiredBegin}
+          />
+          <CustomHourSelectField
+            id="end"
+            name="end"
+            categories={categories}
+            intl={intl}
+            categoryLabel={categoryLabelEnd}
+            categoryPlaceholder={categoryPlaceholderEnd}
+            categoryRequired = {categoryRequiredEnd}
+          />
+          </div>
           <Button
             className={css.submitButton}
             type="submit"
@@ -84,6 +116,7 @@ EditListingDaysFormComponent.defaultProps = {
 EditListingDaysFormComponent.propTypes = {
   rootClassName: string,
   className: string,
+  intl: intlShape.isRequired,
   name: string.isRequired,
   onSubmit: func.isRequired,
   saveActionMsg: string.isRequired,
@@ -95,8 +128,14 @@ EditListingDaysFormComponent.propTypes = {
     showListingsError: propTypes.error,
     updateListingError: propTypes.error,
   }),
+  categories: arrayOf(
+    shape({
+      key: string.isRequired,
+      label: string.isRequired,
+    })
+  ),
 };
 
 const EditListingDaysForm = EditListingDaysFormComponent;
 
-export default EditListingDaysForm;
+export default compose(injectIntl)(EditListingDaysForm);

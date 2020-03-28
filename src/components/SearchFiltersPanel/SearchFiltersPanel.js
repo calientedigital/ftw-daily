@@ -160,9 +160,10 @@ class SearchFiltersPanelComponent extends Component {
     const initialCategory = this.initialValue(categoryFilter.paramName);
     const initialAmenities = this.initialValues(amenitiesFilter.paramName);
 
-    const categoryLabel = intl.formatMessage({
-      id: 'SearchFiltersPanel.categoryLabel',
-    });
+    // const categoryLabel = intl.formatMessage({
+    //   id: 'SearchFiltersPanel.categoryLabel',
+    // });
+    const categoryLabel = "Categorías";
 
     const amenitiesLabel = intl.formatMessage({
       id: 'SearchFiltersPanel.amenitiesLabel',
@@ -198,7 +199,6 @@ class SearchFiltersPanelComponent extends Component {
       <div className={classes}>
         <div className={css.filtersWrapper}>
           {categoryFilterElement}
-          {amenitiesFilterElement}
         </div>
         <div className={css.footer}>
           <InlineTextButton rootClassName={css.resetAllButton} onClick={this.resetAll}>

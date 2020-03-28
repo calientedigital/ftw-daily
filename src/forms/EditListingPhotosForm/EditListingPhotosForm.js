@@ -38,6 +38,7 @@ export class EditListingPhotosFormComponent extends Component {
 
   render() {
     return (
+      
       <FinalForm
         {...this.props}
         onImageUploadHandler={this.onImageUploadHandler}
@@ -128,6 +129,7 @@ export class EditListingPhotosFormComponent extends Component {
           const classes = classNames(css.root, className);
 
           return (
+            
             <Form
               className={classes}
               onSubmit={e => {
@@ -135,11 +137,31 @@ export class EditListingPhotosFormComponent extends Component {
                 handleSubmit(e);
               }}
             >
+
               {updateListingError ? (
                 <p className={css.error}>
                   <FormattedMessage id="EditListingPhotosForm.updateFailed" />
                 </p>
               ) : null}
+
+<p>
+      Cuando los participantes buscan productos, las fotos son lo primero en lo que se fijan. Quieren hacerse una idea de lo que recibirán. Estas pautas te ayudarán a resaltar lo que tienes que ofrecer. Revisaremos todas las fotos antes de que se muestren en nuestro Habitálogo.
+<br /><br />
+Recomendaciones:
+<br />
+1.	Si tienes fotos con personas, no dudes en incluirlas, muéstralas disfrutando, si quieres mostrar un producto, busca sus mejores ángulos.<br />
+2.	Asegúrate que las fotos sean de alta resolución, claras y tomadas con buena luz natural. <br />
+3.	Incluye variación de ángulos (desde arriba, alto, bajo, detalles, ancho) en su mayoría disparados verticalmente.<br /> 
+<br />
+Qué debes evitar:
+<br />
+1.	Fotos que se ven escenificadas y poco auténticas. <br />
+2.	Fotos con filtros, superposición gráfica o de textos, borrosas, oscuras y granuladas.<br /> 
+3.	Subir fotos en las que aparezcan drogas, desnudos, bebidas alcohólicas.<br />
+4.	Fotos que no tienen relación con tu producto.<br />
+<br />
+      </p>
+
               <AddImages
                 className={css.imagesField}
                 images={images}

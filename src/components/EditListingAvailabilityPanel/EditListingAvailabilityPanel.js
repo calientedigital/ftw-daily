@@ -6,7 +6,7 @@ import { ensureOwnListing } from '../../util/data';
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ListingLink } from '../../components';
 import { EditListingDaysForm } from '../../forms';
-
+import config from '../../config';
 import css from './EditListingAvailabilityPanel.css';
 const FEATURES_NAME = 'diasDisponibles';
 const EditListingAvailabilityPanel = props => {
@@ -31,7 +31,8 @@ const EditListingAvailabilityPanel = props => {
   
   const { publicData } = currentListing.attributes;
   const diasDisponibles = publicData && publicData.diasDisponibles;
-  const initialValues = { diasDisponibles };
+
+  const initialValues = { diasDisponibles, begin:publicData.begin, end:publicData.end };
   const classes = classNames(rootClassName || css.root, className);
   
   const defaultAvailabilityPlan = {
@@ -69,10 +70,10 @@ const EditListingAvailabilityPanel = props => {
         name={FEATURES_NAME}
         initialValues={initialValues}
         onSubmit={values => {
-          const { diasDisponibles = [] } = values;
+          const { diasDisponibles = [], begin, end } = values;
 
           const updatedValues = {
-            publicData: { diasDisponibles },
+            publicData: { diasDisponibles, begin, end },
           };
           console.log("VALORES OBTENIDOS");
           console.log(updatedValues);
@@ -85,6 +86,7 @@ const EditListingAvailabilityPanel = props => {
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
+        categories={config.custom.hours}
       />
       {/* <EditListingAvailabilityForm
         className={css.form}

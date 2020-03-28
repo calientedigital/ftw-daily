@@ -39,6 +39,10 @@ const EditListingDescriptionFormComponent = props => (
       const titleRequiredMessage = intl.formatMessage({
         id: 'EditListingDescriptionForm.titleRequired',
       });
+
+      const shortDescriptionRequiredMessage = intl.formatMessage({
+        id: 'EditListingDescriptionForm.shortDescriptionRequired',
+      });
       const maxLengthMessage = intl.formatMessage(
         { id: 'EditListingDescriptionForm.maxLength' },
         {
@@ -98,7 +102,31 @@ const EditListingDescriptionFormComponent = props => (
             validate={composeValidators(required(titleRequiredMessage), maxLength60Message)}
             autoFocus
           />
-
+          <FieldTextInput
+            id="shortDescription"
+            name="shortDescription"
+            className={css.title}
+            type="text"
+            label="Ingresa una descripción corta de tu producto."
+            placeholder="Ingresa una descripción corta."
+            maxLength={TITLE_MAX_LENGTH}
+            validate={composeValidators(required(shortDescriptionRequiredMessage), maxLength60Message)}
+            
+          />
+          
+          <p>
+          Cuéntanos sobre tu producto.<br />
+Piensa en la descripción como una oportunidad para inspirar a los Habitantos y que te compren. Ofrece detalles que hacen especial tu oferta. 
+<br /><br />
+Recomendaciones
+<br />
+1.	Describir claramente que recibirán al comprar tu producto. <br />
+2.	Especificar claramente, horarios si fuera el caso o tiempos de entrega para no causar molestias.<br /> 
+3.	Contar que podrían ganar en su vida si deciden adquirir tus servicios o productos. <br />
+<br />
+Qué debes evitar
+<br />
+1.	No ser claro con tus horarios o descripciones vagas de lo que contiene tu producto. <br /><br /></p>
           <FieldTextInput
             id="description"
             name="description"
@@ -108,7 +136,6 @@ const EditListingDescriptionFormComponent = props => (
             placeholder={descriptionPlaceholderMessage}
             validate={composeValidators(required(descriptionRequiredMessage))}
           />
-
           <CustomCategorySelectFieldMaybe
             id="category"
             name="category"
