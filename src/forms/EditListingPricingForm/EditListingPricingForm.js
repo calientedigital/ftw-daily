@@ -106,8 +106,11 @@ export const EditListingPricingFormComponent = props => (
             validate={priceValidators}
           />
           <p></p>
-          <p>Nota: Del precio de venta, habitálogo obtiene una comisión del 20 %</p>
           <p>Precio que vas a obtener: </p>
+          <p>Habitanto cobra una comisión del 25% por ayudarte a conseguir compradores.</p>
+          <p>
+          CORONAVIRUS: Para apoyar el intercambio entre personas y conociendo que la actividad diaria ha disminuido, en el estado de emergencia la comisión de Habitanto solo será del 15%. Esperamos que esto ayude a que tanto tú como otros puedan conseguir ingresos extras tan necesarios en este momento. 
+          </p>
           <Button
             className={css.submitButton}
             type="submit"
