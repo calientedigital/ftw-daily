@@ -58,41 +58,41 @@
 
       @font-face {
         /* 'SofiaPro-Regular' */
-        font-family: 'sofiapro';
-        src: url('https://assets-sharetribecom.sharetribe.com/webfonts/sofiapro/sofiapro-regular-webfont.woff2') format('woff2'),
-             url('https://assets-sharetribecom.sharetribe.com/webfonts/sofiapro/sofiapro-regular-webfont.woff') format('woff');
+        font-family: 'sofiapro', Helvetica, Arial, sans-serif;
+        src: url('/static/fonts/Panton-Light.woff2') format('woff2'),
+             url('/static/fonts/Panton-Light.woff') format('woff');
         font-weight: 400; /* Regular */
         font-style: normal;
       }
 
       @font-face {
-          font-family: 'sofiapro';
-          src: url('https://assets-sharetribecom.sharetribe.com/webfonts/sofiapro/sofiapro-medium-webfont.woff2') format('woff2'),
-               url('https://assets-sharetribecom.sharetribe.com/webfonts/sofiapro/sofiapro-medium-webfont.woff') format('woff');
+          font-family: 'sofiapro', Helvetica, Arial, sans-serif;
+          src: url('/static/fonts/Panton-Regular.woff2') format('woff2'),
+               url('/static/fonts/Panton-Regular.woff') format('woff');
           font-weight: 500; /* Medium */
           font-style: normal;
       }
 
       @font-face {
-          font-family: 'sofiapro';
-          src: url('https://assets-sharetribecom.sharetribe.com/webfonts/sofiapro/sofiapro-mediumit-webfont.woff2') format('woff2'),
-               url('https://assets-sharetribecom.sharetribe.com/webfonts/sofiapro/sofiapro-mediumit-webfont.woff') format('woff');
+          font-family: 'sofiapro', Helvetica, Arial, sans-serif;
+          src: url('/static/fonts/Panton-SemiBoldItalic.woff2') format('woff2'),
+               url('/static/fonts/Panton-SemiBoldItalic.woff') format('woff');
           font-weight: 500; /* Medium italics */
           font-style: italic;
       }
 
       @font-face {
-          font-family: 'sofiapro';
-          src: url('https://assets-sharetribecom.sharetribe.com/webfonts/sofiapro/sofiapro-semibold-webfont.woff2') format('woff2'),
-               url('https://assets-sharetribecom.sharetribe.com/webfonts/sofiapro/sofiapro-semibold-webfont.woff') format('woff');
+          font-family: 'sofiapro', Helvetica, Arial, sans-serif;
+          src: url('/static/fonts/Panton-SemiBold.woff2') format('woff2'),
+               url('/static/fonts/Panton-SemiBold.woff') format('woff');
           font-weight: 600; /* SemiBold */
           font-style: normal;
       }
 
       @font-face {
-          font-family: 'sofiapro';
-          src: url('https://assets-sharetribecom.sharetribe.com/webfonts/sofiapro/sofiapro-bold-webfont.woff2') format('woff2'),
-               url('https://assets-sharetribecom.sharetribe.com/webfonts/sofiapro/sofiapro-bold-webfont.woff') format('woff');
+          font-family: 'sofiapro', Helvetica, Arial, sans-serif;
+          src: url('/static/fonts/Panton-Bold.woff2') format('woff2'),
+               url('/static/fonts/Panton-Bold.woff') format('woff');
           font-weight: 700; /* Bold */
           font-style: normal;
       }
@@ -143,10 +143,10 @@
 
 
         // Fonts we use (Check font-face rules from <style> tag in <head> section)
-        var sofiaproRegular = new FontFaceObserver('sofiapro', { weight: 400 });
-        var sofiaproMedium = new FontFaceObserver('sofiapro', { weight: 500 });
-        var sofiaproSemibold = new FontFaceObserver('sofiapro', { weight: 600 });
-        var sofiaproBold = new FontFaceObserver('sofiapro', { weight: 700 });
+        var sofiaproRegular = new FontFaceObserver('sofiapro', Helvetica, Arial, sans-serif, { weight: 400 });
+        var sofiaproMedium = new FontFaceObserver('sofiapro', Helvetica, Arial, sans-serif, { weight: 500 });
+        var sofiaproSemibold = new FontFaceObserver('sofiapro', Helvetica, Arial, sans-serif, { weight: 600 });
+        var sofiaproBold = new FontFaceObserver('sofiapro', Helvetica, Arial, sans-serif, { weight: 700 });
 
         var fontLoadingTimeout = 5000;
 
