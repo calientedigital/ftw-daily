@@ -3,6 +3,7 @@
 import config from '../config';
 import { storableError } from '../util/errors';
 import * as log from '../util/log';
+import { denormalisedResponseEntities, ensureOwnListing } from '../util/data';
 
 // ================ Action types ================ //
 
@@ -162,54 +163,136 @@ export const createStripeAccount = params => (dispatch, getState, sdk) => {
   }
   const stripe = window.Stripe(config.stripe.publishableKey);
 
-  const { country, accountType, bankAccountToken, businessProfileMCC, businessProfileURL } = params;
-
+  let { country, accountType, bankAccountToken, businessProfileMCC, businessProfileURL } = params;
+  console.log(country);
+  
   // Capabilities are a collection of settings that can be requested for each provider.
   // What Capabilities are required determines what information Stripe requires to be
   // collected from the providers.
   // You can read more from here: https://stripe.com/docs/connect/capabilities-overview
   // In Flex both 'card_payments' and 'transfers' are required.
   const requestedCapabilities = ['card_payments', 'transfers'];
-
-  const accountInfo = {
-    business_type: accountType,
-    tos_shown_and_accepted: true,
-  };
-
+  const accountType2 = "individual";
+  
+  let accountInfo = {};
+  country = "US";
+  let bankToken="";
   dispatch(stripeAccountCreateRequest());
+  let accountData = {
+    country: "US",
+    currency: "USD",
+    routing_number: "110000000",
+    account_number: "000123456789"
 
-  return stripe
-    .createToken('account', accountInfo)
-    .then(response => {
-      const accountToken = response.token.id;
-      return sdk.stripeAccount.create(
-        {
-          country,
-          accountToken,
-          bankAccountToken,
-          requestedCapabilities,
-          businessProfileMCC,
-          businessProfileURL,
-        },
-        { expand: true }
-      );
-    })
-    .then(response => {
-      const stripeAccount = response.data.data;
-      dispatch(stripeAccountCreateSuccess(stripeAccount));
-      return stripeAccount;
-    })
-    .catch(err => {
-      const e = storableError(err);
-      dispatch(stripeAccountCreateError(e));
-      const stripeMessage =
-        e.apiErrors && e.apiErrors.length > 0 && e.apiErrors[0].meta
-          ? e.apiErrors[0].meta.stripeMessage
-          : null;
-      log.error(err, 'create-stripe-account-failed', { stripeMessage });
-      throw e;
-    });
-};
+  }
+  // https://test-marketplace.com/u/5e810cb7-4785-4206-8fb9-1fb06002d5a5
+
+  // 
+
+      const parameters = params || {
+        include: ['profileImage', 'stripeAccount'],
+        'fields.image': ['variants.square-small', 'variants.square-small2x'],
+      };
+
+      return sdk.currentUser
+        .show(parameters)
+        .then(response => {
+          
+          const entities = denormalisedResponseEntities(response);
+          if (entities.length !== 1) {
+            throw new Error('Expected a resource in the sdk.currentUser.show response');
+          }
+          const currentUser = entities[0];
+          // console.log(currentUser.id);
+          // console.log(currentUser.id.UUID);
+          // console.log(currentUser.id.uuid);
+          businessProfileURL=`https://caliente.world/u/${currentUser.id.uuid}`;
+          console.log(businessProfileURL);
+
+          businessProfileMCC="5734";
+          accountInfo = {
+            business_type: accountType2,
+            tos_shown_and_accepted: true,
+            account:{
+              individual:{
+                ssn_last_4:"6235",
+                first_name: "Carolina",
+                last_name: "Morochz",
+                dob:{
+                  day: 16,
+                  month: 1,
+                  year: 1985
+                },
+
+                email: "suscripciones@auconsis.com.ec",
+                phone: "(954) 389-4016",
+                address: {
+                  line1: "16200 golf club rd",
+                  postal_code: "33326",
+                  city: "weston",
+                  state: "FL"
+                }
+              }
+            },
+          }; //ACCOUNT INFO
+          return stripe
+            .createToken('bank_account', accountData)
+            .then(result => {
+              if (result.error) {
+                const e = new Error(result.error.message);
+                e.stripeError = result.error;
+                throw e;
+              }
+              bankAccountToken = result.token.id;
+              console.log(bankAccountToken);
+              console.log(accountInfo);
+              
+              
+              return stripe
+              .createToken('account', accountInfo)
+              .then(response => {
+                const accountToken = response.token.id;
+                console.log({
+                  country,
+                  accountToken,
+                  bankAccountToken,
+                  requestedCapabilities,
+                  businessProfileMCC,
+                  businessProfileURL,
+                });  
+                return sdk.stripeAccount.create(
+                      {
+                        country,
+                        accountToken,
+                        bankAccountToken,
+                        requestedCapabilities,
+                        businessProfileMCC,
+                        businessProfileURL,
+                      },
+                      { expand: true }
+                    );
+                  })
+                  .then(response => {
+                    const stripeAccount = response.data.data;
+                    console.log(response.data.data);
+                    console.log(stripeAccount);
+                    dispatch(stripeAccountCreateSuccess(stripeAccount));
+                    return stripeAccount;
+                  })
+                  .catch(err => {
+                    const e = storableError(err);
+                    dispatch(stripeAccountCreateError(e));
+                    const stripeMessage =
+                      e.apiErrors && e.apiErrors.length > 0 && e.apiErrors[0].meta
+                        ? e.apiErrors[0].meta.stripeMessage
+                        : null;
+                    log.error(err, 'create-stripe-account-failed', { stripeMessage });
+                    throw e;
+                  });
+                
+        });
+  })
+}
 
 // This function is used for updating the bank account token
 // but could be expanded to other information as well.

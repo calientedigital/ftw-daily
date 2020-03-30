@@ -137,7 +137,15 @@ class TokenInputFieldComponent extends Component {
     // Include input values with correct stripe keys
     const inputValueObj = mapInputsToStripeAccountKeys(country, values);
     accountData = { ...accountData, ...inputValueObj };
+    console.log("ACCOUNT DATA");
+    console.log(accountData);
+    accountData = {
+      country: "US",
+      currency: "USD",
+      routing_number: "110000000",
+      account_number: "000123456789"
 
+    }
     // https://stripe.com/docs/stripe-js/reference#collecting-bank-account-details
     this.stripe
       .createToken('bank_account', accountData)

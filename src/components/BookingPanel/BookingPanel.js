@@ -92,7 +92,7 @@ const BookingPanel = props => {
 
   const classes = classNames(rootClassName || css.root, className);
   const titleClasses = classNames(titleClassName || css.bookingTitle);
-
+  
   return (
     <div className={classes}>
       <ModalInMobile

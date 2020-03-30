@@ -16,6 +16,7 @@ const StripeBankAccountRequiredInput = props => {
     onChange,
     onFocus,
     onBlur,
+    onLoad,
     isTouched,
     showStripeError,
     inputError,
@@ -41,6 +42,7 @@ const StripeBankAccountRequiredInput = props => {
     onFocus,
     onBlur,
     disabled,
+    onLoad,
   };
 
   const errorMessage = <p className={css.error}>{inputError}</p>;

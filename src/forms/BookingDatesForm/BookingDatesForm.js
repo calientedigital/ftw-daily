@@ -112,6 +112,7 @@ export class BookingDatesFormComponent extends Component {
           // This is the place to collect breakdown estimation data. See the
           // EstimatedBreakdownMaybe component to change the calculations
           // for customized payment processes.
+          console.log(unitType);
           const bookingData =
             startDate && endDate
               ? {

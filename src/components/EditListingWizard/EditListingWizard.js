@@ -214,25 +214,41 @@ class EditListingWizard extends Component {
 
   handlePublishListing(id) {
     const { onPublishListingDraft, currentUser, stripeAccount } = this.props;
-
+    console.log(currentUser);
+    console.log(currentUser.stripeAccount);
+    // if(currentUser.stripeAccount == null){
+    //   currentUser.stripeAccount = {
+    //     id: {
+    //       _sdkType: "UUID",
+    //       uuid: "5e7fd7d7-b2a7-4f43-a92c-2f4f16f30c29"
+    //     },
+    //     type: "stripeAccount",
+    //     attributes:{
+    //       stripeAccountId: "acct_1GRngxGpoXkopXkK",
+    //       stripeAccountData: null
+    //     }
+    //   }
+    // } 
     const stripeConnected =
       currentUser && currentUser.stripeAccount && !!currentUser.stripeAccount.id;
 
     const stripeAccountData = stripeConnected ? getStripeAccountData(stripeAccount) : null;
-
     const requirementsMissing =
       stripeAccount &&
       (hasRequirements(stripeAccountData, 'past_due') ||
         hasRequirements(stripeAccountData, 'currently_due'));
+    console.log("hola");
+    console.log(stripeConnected);
 
-    if (stripeConnected && !requirementsMissing) {
-      onPublishListingDraft(id);
+    if (stripeConnected) {
+      
     } else {
       this.setState({
         draftId: id,
         showPayoutDetails: true,
       });
     }
+    // onPublishListingDraft(id);
   }
 
   handlePayoutModalClose() {
@@ -240,10 +256,13 @@ class EditListingWizard extends Component {
   }
 
   handlePayoutSubmit(values) {
+    console.log(values);
     this.props
       .onPayoutDetailsSubmit(values)
       .then(response => {
         this.props.onManageDisableScrolling('EditListingWizard.payoutModal', false);
+        // handlePayoutModalClose();
+        // this.setState({ showPayoutDetails: false });
       })
       .catch(() => {
         // do nothing
@@ -396,7 +415,7 @@ class EditListingWizard extends Component {
             );
           })}
         </Tabs>
-        <Modal
+         <Modal
           id="EditListingWizard.payoutModal"
           isOpen={this.state.showPayoutDetails}
           onClose={this.handlePayoutModalClose}
@@ -438,7 +457,7 @@ class EditListingWizard extends Component {
                   onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink}
                   stripeConnected={stripeConnected}
                 >
-                  {stripeConnected && !returnedAbnormallyFromStripe && showVerificationNeeded ? (
+                  {/* {stripeConnected && !returnedAbnormallyFromStripe && showVerificationNeeded ? (
                     <StripeConnectAccountStatusBox
                       type="verificationNeeded"
                       inProgress={getAccountLinkInProgress}
@@ -455,12 +474,12 @@ class EditListingWizard extends Component {
                         'custom_account_update'
                       )}
                     />
-                  ) : null}
+                  ) : null} */}
                 </StripeConnectAccountForm>
               </>
             )}
           </div>
-        </Modal>
+        </Modal> 
       </div>
     );
   }

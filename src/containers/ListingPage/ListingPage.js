@@ -212,7 +212,7 @@ export class ListingPageComponent extends Component {
       currentListing.id && currentListing.attributes.state !== LISTING_STATE_PENDING_APPROVAL;
 
     const pendingIsApproved = isPendingApprovalVariant && isApproved;
-
+    console.log(unitType);
     // If a /pending-approval URL is shared, the UI requires
     // authentication and attempts to fetch the listing from own
     // listings. This will fail with 403 Forbidden if the author is

@@ -312,8 +312,8 @@ const StripeConnectAccountFormComponent = props => {
                 className={css.submitButton}
                 type="submit"
                 inProgress={submitInProgress}
-                disabled={submitDisabled}
-                ready={ready}
+                disabled={false}
+                ready={true}
               >
                 {submitButtonText || (
                   <FormattedMessage id="StripeConnectAccountForm.submitButtonText" />
@@ -326,7 +326,7 @@ const StripeConnectAccountFormComponent = props => {
         return config.stripe.publishableKey ? (
           <Form className={classes} onSubmit={handleFormSubmit}>
             {!stripeConnected || accountDataLoaded ? (
-              stripeAccountFields
+              <p>Creado</p>
             ) : (
               <div className={css.savedInformation}>
                 <FormattedMessage id="StripeConnectAccountForm.loadingStripeAccountData" />
