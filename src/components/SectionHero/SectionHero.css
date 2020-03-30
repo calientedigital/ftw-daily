@@ -64,13 +64,18 @@
 
   @media only screen and (min-width: 1367px) {
     margin: 0 auto;
-    max-width: calc(1052px + 36px + 36px);
+    /* max-width: calc(1052px + 36px + 36px); */
     width: 100%;
     padding: 0 36px 0 36px;
   }
 }
 
 .heroMainTitle {
+  text-align: center;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+
+
   @apply --marketplaceHeroTitleFontStyles;
   color: var(--matterColorLight);
 
@@ -78,11 +83,18 @@
   animation-delay: 0.5s;
 
   @media (--viewportMedium) {
-    max-width: var(--SectionHero_desktopTitleMaxWidth);
+    /* max-width: var(--SectionHero_desktopTitleMaxWidth); */
   }
+
 }
 
+
+
 .heroSubTitle {
+  text-align: center;
+  margin-top: 10px !important;
+  margin-bottom: 25px !important;
+
   @apply --marketplaceBodyFontStyles;
 
   color: var(--matterColorLight);
@@ -92,7 +104,7 @@
   animation-delay: 0.65s;
 
   @media (--viewportMedium) {
-    max-width: var(--SectionHero_desktopTitleMaxWidth);
+    /* max-width: var(--SectionHero_desktopTitleMaxWidth); */
     margin: 0 0 63px 0;
   }
 }
