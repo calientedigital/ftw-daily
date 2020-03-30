@@ -96,13 +96,13 @@
 }
 
 .descText{
-  font-size: 16px;
-  line-height: 25px;
+  font-size: 14px;
+  line-height: 20px;
   margin-top: 5px;
   margin-bottom: 15px;
   @media (--viewportMedium) {
-    font-size: 16px;
-    line-height: 25px;
+    font-size: 14px;
+    line-height: 20px;
     margin-top: 5px;
     margin-bottom: 15px;
 

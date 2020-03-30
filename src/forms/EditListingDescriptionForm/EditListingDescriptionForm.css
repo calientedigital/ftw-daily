@@ -64,3 +64,18 @@
     margin-top: 100px;
   }
 }
+
+
+.descText{
+  font-size: 17px;
+  line-height: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  @media (--viewportMedium) {
+    font-size: 17px;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+  }
+}

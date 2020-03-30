@@ -111,17 +111,17 @@ const EditListingDescriptionFormComponent = props => (
             placeholder="Ingresa una descripción corta."
             maxLength={TITLE_MAX_LENGTH}
             validate={composeValidators(required(shortDescriptionRequiredMessage), maxLength60Message)}
-            
+
           />
-          
-          <p>
+
+          <p className={css.descText}>
           Cuéntanos sobre tu producto.<br />
-Piensa en la descripción como una oportunidad para inspirar a los Habitantos y que te compren. Ofrece detalles que hacen especial tu oferta. 
+Piensa en la descripción como una oportunidad para inspirar a los Habitantos y que te compren. Ofrece detalles que hacen especial tu oferta.
 <br /><br />
 Recomendaciones
 <br />
 1.	Describir claramente que recibirán al comprar tu producto. <br />
-2.	Especificar claramente, horarios si fuera el caso o tiempos de entrega para no causar molestias.<br /> 
+2.	Especificar claramente, horarios si fuera el caso o tiempos de entrega para no causar molestias.<br />
 3.	Contar que podrían ganar en su vida si deciden adquirir tus servicios o productos. <br />
 <br />
 Qué debes evitar

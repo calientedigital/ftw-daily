@@ -191,7 +191,7 @@
   "EditListingPoliciesForm.rulesPlaceholder": "Describe las reglas",
   "EditListingPoliciesForm.showListingFailed": "Error al recopilar los datos del anuncio",
   "EditListingPoliciesForm.updateFailed": "Error al actualizar el anuncio. Inténtalo de nuevo.",
-  "EditListingPoliciesPanel.createListingTitle": "Es tiempo de establecer las reglas para los visitantes.",
+  "EditListingPoliciesPanel.createListingTitle": "Te gustaría describir alguna regla que el Habitanto debe tener en cuenta.",
   "EditListingPoliciesPanel.title": "Edita las reglas de {listingTitle}",
   "EditListingPricingForm.priceInputPlaceholder": "Pon tu precio…",
   "EditListingPricingForm.pricePerDay": "Precio por día en euros",

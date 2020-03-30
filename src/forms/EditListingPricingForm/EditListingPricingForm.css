@@ -14,6 +14,37 @@
   }
 }
 
+
+.descText{
+  font-size: 17px;
+  line-height: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  @media (--viewportMedium) {
+    font-size: 17px;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+  }
+}
+
+.descText2{
+  font-size: 17px;
+  line-height: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  @media (--viewportMedium) {
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+  }
+}
+
+
+
 .error {
   color: var(--failColor);
 }

@@ -77,8 +77,8 @@ export const EditListingPricingFormComponent = props => (
       const submitInProgress = updateInProgress;
       const submitDisabled = invalid || disabled || submitInProgress;
       const { updateListingError, showListingsError } = fetchErrors || {};
-      
-    
+
+
       return (
         <Form onSubmit={handleSubmit} className={classes}>
           {updateListingError ? (
@@ -102,9 +102,9 @@ export const EditListingPricingFormComponent = props => (
             validate={priceValidators}
           />
           <p></p>
-          <p>Habitanto cobra una comisión del 25% por ayudarte a conseguir compradores.</p>
-          <p>
-          CORONAVIRUS: Para apoyar el intercambio entre personas y conociendo que la actividad diaria ha disminuido, en el estado de emergencia la comisión de Habitanto solo será del 15%. Esperamos que esto ayude a que tanto tú como otros puedan conseguir ingresos extras tan necesarios en este momento. 
+          <p className={css.descText}>Habitanto cobra una comisión del 25% por ayudarte a conseguir compradores.</p>
+          <p className={css.descText2}>
+          CORONAVIRUS: Para apoyar el intercambio entre personas y conociendo que la actividad diaria ha disminuido, en el estado de emergencia la comisión de Habitanto solo será del 15%. Esperamos que esto ayude a que tanto tú como otros puedan conseguir ingresos extras tan necesarios en este momento.
           </p>
           <Button
             className={css.submitButton}
