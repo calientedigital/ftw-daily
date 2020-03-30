@@ -40,9 +40,7 @@ const EditListingDescriptionFormComponent = props => (
         id: 'EditListingDescriptionForm.titleRequired',
       });
 
-      const shortDescriptionRequiredMessage = intl.formatMessage({
-        id: 'EditListingDescriptionForm.shortDescriptionRequired',
-      });
+
       const maxLengthMessage = intl.formatMessage(
         { id: 'EditListingDescriptionForm.maxLength' },
         {
@@ -102,18 +100,7 @@ const EditListingDescriptionFormComponent = props => (
             validate={composeValidators(required(titleRequiredMessage), maxLength60Message)}
             autoFocus
           />
-          <FieldTextInput
-            id="shortDescription"
-            name="shortDescription"
-            className={css.title}
-            type="text"
-            label="Ingresa el titulo de tu anuncio."
-            placeholder="Ingresa el titulo de tu anuncio. (máximo 60 caracteres)"
-            maxLength={TITLE_MAX_LENGTH}
-            validate={composeValidators(required(shortDescriptionRequiredMessage), maxLength60Message)}
-
-          />
-
+        
 
           <FieldTextInput
             id="description"

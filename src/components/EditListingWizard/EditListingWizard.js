@@ -94,7 +94,7 @@ const tabCompleted = (tab, listing) => {
 
   switch (tab) {
     case DESCRIPTION:
-      return !!(description && title && publicData.shortDescription);
+      return !!(description && title );
     // case FEATURES:
     //   return !!(publicData && publicData.amenities);
     case POLICY:
@@ -228,7 +228,7 @@ class EditListingWizard extends Component {
     //       stripeAccountData: null
     //     }
     //   }
-    // } 
+    // }
     const stripeConnected =
       currentUser && currentUser.stripeAccount && !!currentUser.stripeAccount.id;
 
@@ -241,7 +241,7 @@ class EditListingWizard extends Component {
     console.log(stripeConnected);
 
     if (stripeConnected) {
-      
+
     } else {
       this.setState({
         draftId: id,
@@ -479,7 +479,7 @@ class EditListingWizard extends Component {
               </>
             )}
           </div>
-        </Modal> 
+        </Modal>
       </div>
     );
   }

@@ -118,7 +118,7 @@ const UserCard = props => {
 
   return (
     <div className={classes}>
-      <div className={css.content}>
+      <div >
         <AvatarLarge className={css.avatar} user={user} />
         <div className={css.info}>
           <div className={css.headingRow}>
