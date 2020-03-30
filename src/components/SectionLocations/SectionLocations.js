@@ -65,19 +65,19 @@ const SectionLocations = props => {
           'Comida',
           foodImage,
           'Si eres de los que ama la cocina o tienes uno de esos postres que todos alaban, porque no compartirlo en tu comunidad, estamos seguros que en habitanto todos estamos dispuestos a chuparnos los dedos con increíbles creaciones. ',
-          '?address=Helsinki%2C%20Finland&bounds=60.2978389%2C25.254484899999966%2C59.9224887%2C24.782875800000056&origin=60.16985569999999%2C24.93837910000002'
+          '?address=Ecuador&pub_category=comida'
         )}
         {locationLink(
           'Servicios de hogar',
           toolsImage,
           'Hay tantas cosas que no sabemos hacer y que nuestro hogar necesita, arreglar una tubería o los arreglos eléctricos, pues día a día se inscriben más habitantos profesionales, que están listos para ayudarte en casa. Al final solo buscamos casas felices.',
-          '?address=Rovaniemi%2C%20Finland&bounds=67.18452510000002%2C27.32667850000007%2C66.1553745%2C24.736871199999996&origin=66.50394779999999%2C25.729390599999988'
+          '?address=Ecuador&bounds=67.18452510000002%2C27.32667850000007%2C66.1553745%2C24.736871199999996&origin=66.50394779999999%2C25.729390599999988&pub_category=comida'
         )}
         {locationLink(
           'Mascotas',
           animalsImage,
           'Esos peludos que se vuelven parte de la familia, como no quererlos, pues aquí encontrarás algunos servicios o productos hechos solo para ellos, que bueno es compartir lo que tienes para darlo a los demás. ',
-          '?address=Ruka%2C%20Finland&bounds=66.1704578%2C29.14246849999995%2C66.1614402%2C29.110453699999994&origin=66.16594940000002%2C29.12646110000003'
+          '?address=Ecuador&pub_category=mascotas'
         )}
       </div>
       <div className={css.locations}>
@@ -85,19 +85,19 @@ const SectionLocations = props => {
           'Clases',
           clasesImage,
           'Si quieres aprender a cantar o tener clases de yoga dirigidas, personal instructors o simplemente quieres aprender a bailar, muchos pueden ayudarte aquí, compartamos conocimientos, disfrutemos juntos. ',
-          '?address=Helsinki%2C%20Finland&bounds=60.2978389%2C25.254484899999966%2C59.9224887%2C24.782875800000056&origin=60.16985569999999%2C24.93837910000002'
+          '?address=Ecuador&bounds=60.2978389%2C25.254484899999966%2C59.9224887%2C24.782875800000056&origin=60.16985569999999%2C24.93837910000002&pub_category=comida'
         )}
         {locationLink(
           'Niños',
           childrenImage,
           'Desde los más pequeñitos hasta los más grandes, ellos son el centro del hogar, quieres nanas o babysiters, si alguien sabe hacer compotas, juguetes didácticos este es el espacio perfecto para compartirlo.  ',
-          '?address=Rovaniemi%2C%20Finland&bounds=67.18452510000002%2C27.32667850000007%2C66.1553745%2C24.736871199999996&origin=66.50394779999999%2C25.729390599999988'
+          '?address=Ecuador&bounds=67.18452510000002%2C27.32667850000007%2C66.1553745%2C24.736871199999996&origin=66.50394779999999%2C25.729390599999988&pub_category=comida'
         )}
         {locationLink(
           'Bienestar',
           bienestarImage,
           'Si eres de los que les gusta cuidarse, has desarrollado tus productos orgánicos, te gustaría mostrarle al mundo más sobre como cuidar el planeta o puedes compartir tus conocimientos saludables, ponte creativo y crea tu producto, muchos te lo agradecerán.',
-          '?address=Ruka%2C%20Finland&bounds=66.1704578%2C29.14246849999995%2C66.1614402%2C29.110453699999994&origin=66.16594940000002%2C29.12646110000003'
+          '?address=Ecuador&bounds=66.1704578%2C29.14246849999995%2C66.1614402%2C29.110453699999994&origin=66.16594940000002%2C29.12646110000003&pub_category=comida'
         )}
       </div>
     </div>

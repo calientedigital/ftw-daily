@@ -326,7 +326,7 @@ const StripeConnectAccountFormComponent = props => {
         return config.stripe.publishableKey ? (
           <Form className={classes} onSubmit={handleFormSubmit}>
             {!stripeConnected || accountDataLoaded ? (
-              <p>Creado</p>
+              <p></p>
             ) : (
               <div className={css.savedInformation}>
                 <FormattedMessage id="StripeConnectAccountForm.loadingStripeAccountData" />

@@ -291,6 +291,9 @@ class ProfileSettingsFormComponent extends Component {
                 <p className={css.bioInfo}>
                   <FormattedMessage id="ProfileSettingsForm.bioInfo" />
                 </p>
+                <p>
+                Ejemplo: Soy el cofundador de Amazing Brewing Company y uno de los siete cicerones (sumilleres de cerveza) certificados de Corea. He vivido en Asia, Europa y Estados Unidos, y he probado la cerveza de más de 100 fábricas de todo el mundo.
+                </p>
               </div>
               {submitError}
               <Button
