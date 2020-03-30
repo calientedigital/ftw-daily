@@ -146,7 +146,8 @@ export class EditListingPhotosFormComponent extends Component {
 
 <p className={css.descText}>
       Cuando los participantes buscan productos, las fotos son lo primero en lo que se fijan. Quieren hacerse una idea de lo que recibirán. Estas pautas te ayudarán a resaltar lo que tienes que ofrecer. Revisaremos todas las fotos antes de que se muestren en nuestro Habitálogo.
-<br /><br />
+</p>
+<p className={css.descText2}>
 Recomendaciones:
 <br />
 1.	Si tienes fotos con personas, no dudes en incluirlas, muéstralas disfrutando, si quieres mostrar un producto, busca sus mejores ángulos.<br />

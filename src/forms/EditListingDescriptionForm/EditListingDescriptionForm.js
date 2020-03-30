@@ -107,26 +107,14 @@ const EditListingDescriptionFormComponent = props => (
             name="shortDescription"
             className={css.title}
             type="text"
-            label="Ingresa una descripción corta de tu producto."
-            placeholder="Ingresa una descripción corta."
+            label="Ingresa el titulo de tu anuncio."
+            placeholder="Ingresa el titulo de tu anuncio. (máximo 60 caracteres)"
             maxLength={TITLE_MAX_LENGTH}
             validate={composeValidators(required(shortDescriptionRequiredMessage), maxLength60Message)}
 
           />
 
-          <p className={css.descText}>
-          Cuéntanos sobre tu producto.<br />
-Piensa en la descripción como una oportunidad para inspirar a los Habitantos y que te compren. Ofrece detalles que hacen especial tu oferta.
-<br /><br />
-Recomendaciones
-<br />
-1.	Describir claramente que recibirán al comprar tu producto. <br />
-2.	Especificar claramente, horarios si fuera el caso o tiempos de entrega para no causar molestias.<br />
-3.	Contar que podrían ganar en su vida si deciden adquirir tus servicios o productos. <br />
-<br />
-Qué debes evitar
-<br />
-1.	No ser claro con tus horarios o descripciones vagas de lo que contiene tu producto. <br /><br /></p>
+
           <FieldTextInput
             id="description"
             name="description"
@@ -136,6 +124,23 @@ Qué debes evitar
             placeholder={descriptionPlaceholderMessage}
             validate={composeValidators(required(descriptionRequiredMessage))}
           />
+
+
+
+
+<p className={css.descText2}>
+
+Recomendaciones:
+<br />
+1.	Describir claramente que recibirán al comprar tu producto. <br />
+2.	Especificar claramente, horarios si fuera el caso o tiempos de entrega para no causar molestias.<br />
+3.	Contar que podrían ganar en su vida si deciden adquirir tus servicios o productos. <br />
+<br />
+Qué debes evitar:
+<br />
+1.	No ser claro con tus horarios o descripciones vagas de lo que contiene tu producto. <br /><br /></p>
+
+
           <CustomCategorySelectFieldMaybe
             id="category"
             name="category"

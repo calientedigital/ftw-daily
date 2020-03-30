@@ -34,8 +34,10 @@
   line-height: 20px;
   margin-top: 5px;
   margin-bottom: 15px;
+  color: rgba(100, 100, 100, 0.71);
   @media (--viewportMedium) {
     font-size: 15px;
+        color: rgba(100, 100, 100, 0.71);
     line-height: 20px;
     margin-top: 5px;
     margin-bottom: 15px;
