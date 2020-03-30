@@ -104,7 +104,7 @@ export const EditListingPricingFormComponent = props => (
           <p></p>
           <p className={css.descText}>Habitanto cobra una comisión del 25% por ayudarte a conseguir compradores.</p>
           <p className={css.descText2}>
-          CORONAVIRUS: Para apoyar el intercambio entre personas y conociendo que la actividad diaria ha disminuido, en el estado de emergencia la comisión de Habitanto solo será del 15%. Esperamos que esto ayude a que tanto tú como otros puedan conseguir ingresos extras tan necesarios en este momento.
+          CORONAVIRUS: En el estado de emergencia la comisión de Habitanto solo será del 15%. Esperamos que esto ayude a que tanto tú como otros puedan conseguir ingresos extras tan necesarios en este momento.
           </p>
           <Button
             className={css.submitButton}

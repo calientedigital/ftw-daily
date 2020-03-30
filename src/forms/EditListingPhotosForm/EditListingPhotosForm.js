@@ -152,7 +152,7 @@ Recomendaciones:
 <br />
 1.	Si tienes fotos con personas, no dudes en incluirlas, muéstralas disfrutando, si quieres mostrar un producto, busca sus mejores ángulos.<br />
 2.	Asegúrate que las fotos sean de alta resolución, claras y tomadas con buena luz natural. <br />
-3.	Incluye variación de ángulos (desde arriba, alto, bajo, detalles, ancho) en su mayoría disparados horizontalmente.<br />
+3.	Incluye variación de ángulos (desde arriba, alto, bajo, detalles, ancho) en su mayoría disparados verticalmente.<br />
 <br />
 Qué debes evitar:
 <br />
